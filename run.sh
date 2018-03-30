@@ -19,5 +19,5 @@ elif [ "$1" = "clean" ] ; then
    echo "clean up container"
 else
    echo "running in daemon mode"
-   docker run --name $CONTAINER_NAME -d -p 4873:4873 --user jenkins $IMAGE_NAME
+   docker run --name $CONTAINER_NAME -d -p 4873:4873 $IMAGE_NAME
 fi 

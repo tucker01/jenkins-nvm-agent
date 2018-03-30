@@ -37,4 +37,7 @@ RUN groupadd npmusers \
   && chown root:npmusers /.npm-global -R \
   && chmod g+rwx /.npm-global -R
 
+RUN echo NPM_CONFIG_PREFIX=/.npm-global>>/etc/environment
+RUN echo "export PATH=\"/.npm-global/bin:\$PATH\"">>/etc/bash.bashrc
+
 CMD ["/usr/sbin/sshd", "-D"]
