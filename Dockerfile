@@ -41,6 +41,7 @@ RUN groupadd npmusers \
 RUN rm /etc/environment && touch /etc/environment
 RUN echo PATH="\"/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games\"">>/etc/environment
 RUN echo NPM_CONFIG_PREFIX="\"/.npm-global\"">>/etc/environment
+RUN echo export PATH="\"/.npm-global/bin:\$PATH\"">>/home/jenkins/.bashrc
 
 
 CMD ["/usr/sbin/sshd", "-D"]
