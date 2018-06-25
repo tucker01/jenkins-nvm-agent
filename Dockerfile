@@ -1,5 +1,5 @@
 # This docker file will build on the jenkins-agent to provide access to npm utilities
-FROM wrich04ca/jenkins-agent
+FROM ahumanfromca/jenkins-agent
 
 # Install minimum required software
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" >> /etc/apt/sources.list
