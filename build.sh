@@ -8,5 +8,5 @@ if [ -z $NAME ] ; then
 fi
 
 # Trigger docker build command with image name
-#docker build --no-cache -t $NAME .
+# docker build --no-cache -t $NAME .
 docker build -t $NAME .

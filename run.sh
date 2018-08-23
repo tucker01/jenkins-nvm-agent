@@ -19,5 +19,13 @@ elif [ "$1" = "clean" ] ; then
    echo "clean up container"
 else
    echo "running in daemon mode"
-   docker run --name $CONTAINER_NAME -d -p 4873:4873 $IMAGE_NAME
+   docker run --name $CONTAINER_NAME -d -p 4873:4873 -p 22:22 $IMAGE_NAME
+
+   echo "Container IP:"
+   IP=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $CONTAINER_NAME)
+   echo $IP
+
+   echo ""
+   echo "Cleaning SSH Keychain:"
+   ssh-keygen -f ~/.ssh/known_hosts -R $IP
 fi 
