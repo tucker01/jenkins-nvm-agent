@@ -45,7 +45,9 @@ ARG bashEnv=/etc/bash.bashrc
 
 # Set the npm configuration so that users can install and run
 # global modules when permissions are set properly
-
+# Set the config globally
+RUN rm /etc/environment && touch /etc/environment
+RUN echo PATH="\"/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games\"">>/etc/environment
 # First move the template file over
 RUN mkdir ${tempDir}
 COPY env.bashrc ${tempDir}/env.bashrc
