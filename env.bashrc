@@ -11,5 +11,3 @@ export PATH=/.npm-global/bin:$PATH
 ########################################
 # END NPM CONFIGURATION                #
 ########################################
-
-export TEST="THIS IS A TEST"

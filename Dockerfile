@@ -66,7 +66,7 @@ RUN touch ${sshEnv} \
 #     && cat ${tempDir}/env.bashrc>>${bashEnv}
 
 # Add the environment setup before the exit line in the global bashrc file
-RUN sed -n -i -e "/# If not running interactively, don't do anything/r /tmp/jenkins-npm-agent/env.bashrc" -e 1x -e '2,${x;p}' -e '${x;p}' /etc/bash.bashrc
+RUN sed -i -e "/# If not running interactively, don't do anything/r ${tempDir}/env.bashrc" -e //N ${bashEnv}
 
 # Cleanup after ourselves
 RUN rm -rdf ${tempDir}
