@@ -62,9 +62,6 @@ RUN touch ${sshEnv} \
     && cat ${tempDir}/env.bashrc>>${sshEnv}
 
 # Create a properties file that is used for all bash sessions on the machine
-# RUN touch ${bashEnv} \
-#     && cat ${tempDir}/env.bashrc>>${bashEnv}
-
 # Add the environment setup before the exit line in the global bashrc file
 RUN sed -i -e "/# If not running interactively, don't do anything/r ${tempDir}/env.bashrc" -e //N ${bashEnv}
 
