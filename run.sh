@@ -1,6 +1,6 @@
 #!/bin/sh
 
-IMAGE_NAME='jenkins-npm-agent'
+IMAGE_NAME='jenkins-nvm-agent'
 
 CONTAINER_NAME=$IMAGE_NAME'-container'
 

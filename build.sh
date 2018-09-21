@@ -4,7 +4,7 @@ NAME=$1
 
 # Test if input is empty
 if [ -z $NAME ] ; then 
-   NAME='jenkins-npm-agent'
+   NAME='jenkins-nvm-agent'
 fi
 
 # Trigger docker build command with image name

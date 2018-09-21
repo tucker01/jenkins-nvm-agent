@@ -1,12 +1,21 @@
-# jenkins-npm-agent
+# jenkins-nvm-agent
 
 This agent builds on the jenkins-agent by adding the ability to execute npm commands within the container. As an added benefit, the jenkins user can install npm items globally without having to run as root. Builds on the [jenkins-agent](https://github.com/AHumanFromCA/jenkins-agent) image.
 
-## Node and NPM install
+## Usage 
 
-The latest version of Node 8 (LTS) and npm will be installed when this image is built.
+`docker run jenkins-nvm-agent` will start the container with the default Node.js version (v10.11.0).
 
-The global prefix for npm is `/.npm-global`. All globally installed npm packages will be placed in to that folder and the user `jenkins` will be able to access it without using sudo.
+Flag | Type | Desc
+--- | --- | ---
+`--node-version` | string | The Node.js version you want to be available by default when the container starts for user root and jenkins
+`--exec` | string | Command to exec after ENTRYPOINT script runs - defaults to ssh
+
+## Node and NVM install
+
+[Nvm](https://github.com/creationix/nvm) is used to manage local versions of Node.js for user root and user jenkins. 
+
+When the container starts, the `--node-version` parameter is passed to nvm. The default specified within the image (globally and nvm) is the current "current" (v10.11.0).
 
 This image also includes the following packages:
 
