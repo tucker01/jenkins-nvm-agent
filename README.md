@@ -1,6 +1,8 @@
 # jenkins-nvm-agent
 
-This agent builds on the jenkins-agent by adding the ability to execute npm commands within the container. As an added benefit, the jenkins user can install npm items globally without having to run as root. Builds on the [jenkins-agent](https://github.com/AHumanFromCA/jenkins-agent) image.
+This agent builds on the [jenkins-agent](https://github.com/AHumanFromCA/jenkins-agent) by adding the ability to start the container with any nvm available Node.js version. Nvm is available to user root and jenknis. 
+
+The jenkins user can install npm items globally without having to run as root. 
 
 ## Usage 
 
