@@ -8,16 +8,18 @@ The jenkins user can install npm items globally without having to run as root.
 
 `docker run jenkins-nvm-agent` will start the container with the default Node.js version (v10.11.0).
 
-Flag | Type | Desc
---- | --- | ---
-`--node-version` | string | The Node.js version you want to be available by default when the container starts for user root and jenkins
-`--exec` | string | Command to exec after ENTRYPOINT script runs - defaults to ssh
+To switch, set `NODE_JS_NVM_VERSION` environment variable to the desired version on the `docker run` command:
+```
+docker run -e "NODE_JS_NVM_VERSION=8.12.0" jenkins-nvm-agent
+```
+
+Any arguments that appear after the image name will be passed to `exec "$@"` in the `docker-entrypoint.sh` script.
 
 ## Node and NVM install
 
 [Nvm](https://github.com/creationix/nvm) is used to manage local versions of Node.js for user root and user jenkins. 
 
-When the container starts, the `--node-version` parameter is passed to nvm. The default specified within the image (globally and nvm) is the current "current" (v10.11.0).
+When the container starts, the value set by `NODE_JS_NVM_VERSION` environment variable is passed to nvm. The default specified within the image (globally and nvm) is the Node.js "current" (currently at v10.11.0).
 
 This image also includes the following packages:
 

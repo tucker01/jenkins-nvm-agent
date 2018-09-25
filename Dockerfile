@@ -25,7 +25,7 @@ sshpass \
 # Note: we'll install Node.js globally and include the build tools for pyhton - but nvm will override when the container starts
 RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 RUN apt-get install -y nodejs expect build-essential maven ca-certificates-java && update-ca-certificates -f
-ENV NODE_JS_DEFAULT_VERSION 10.11.0
+ENV NODE_JS_NVM_VERSION 10.11.0
 
 # Install nvm to enable multiple versions of node runtime and define environment 
 # variable for setting the desired node js version (defaulted to "current" for Node.js)
@@ -70,5 +70,5 @@ COPY install_node.sh ${scriptsDir}
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 # Default to exec ssh
-CMD ["--exec","/usr/sbin/sshd -D"]
+CMD ["/usr/sbin/sshd", "-D"]
 
