@@ -26,3 +26,6 @@ This image also includes the following packages:
 - `build-essential` - Enables the image to install and run NPM packages that require a C compiler.
 - `expect` - Enables the image to respond to terminal prompts. Useful for things such as logging into an npm registry for automatic publishing.
 - `maven` &amp; `ca-certificates-java` - Enables the image to contact maven central using the proper ssl certificates
+
+## Docker run with CLI arguments
+See branch `run_cli_args` for the version of the image that allows passing the Node.js version as a CLI argument on `docker run` rather than env vars.
